@@ -1,0 +1,11 @@
+<div class="row">
+	<div *ngFor="let todo of todos" class="col-md-4">
+		<div class="panel" [class.panel-default]="!todo.done" [class.panel-success]="todo.done">
+			<div class="panel-heading" *ngIf='!todo.done'>Todo</div>
+      <div class="panel-heading" *ngIf='todo.done'>Done</div>
+			<div class="panel-body">
+				{{todo.name}}
+			</div>
+		</div>
+	</div>
+</div>

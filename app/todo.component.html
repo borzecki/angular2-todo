@@ -1,0 +1,32 @@
+<h2>Your todos</h2>
+<div class="row">
+	<div class="col-md-6">
+		<ul *ngIf='todos' class="list-group">
+			<li class="list-group-item">
+				<h3>Current work progress!</h3>
+				<progressbar [max]="max" [value]="dynamic" class="progress-striped">
+					<span style="color:white; white-space:nowrap;">{{dynamic}} / {{max}}</span>
+				</progressbar>
+			</li>
+			<li *ngFor='let todo of todos' [class.list-group-item-success]='todo.done' class="list-group-item">
+				<span (click)="flup(todo)" class="touchable">
+      <input type="checkbox" [(ngModel)]="todo.done" (change)="flup(todo)">
+      <span>{{todo.name}}</span>
+				</span>
+				<button class="btn btn-danger btn-sm pull-right" (click)="delete(todo)">
+					<span class="glyphicon glyphicon glyphicon-trash" aria-hidden="true"></span>
+				</button>
+			</li>
+		</ul>
+	</div>
+</div>
+<div class="row">
+	<div class="col-lg-6">
+		<div class="input-group">
+			<input [(ngModel)]="todo.name" placeholder="name" type="text" class="form-control" placeholder="Do..." />
+			<span class="input-group-btn">
+        <button type="button" (click)="addTodo()" class="btn btn-success">add</button>
+      </span>
+		</div>
+	</div>
+</div>
