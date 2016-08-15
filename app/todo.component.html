@@ -10,7 +10,7 @@
 			</li>
 			<li *ngFor='let todo of todos' [class.list-group-item-success]='todo.done' class="list-group-item">
 				<span (click)="flup(todo)" class="touchable">
-      <input type="checkbox" [(ngModel)]="todo.done" (change)="flup(todo)">
+      <input type="checkbox" [(ngModel)]="todo.done">
       <span>{{todo.name}}</span>
 				</span>
 				<button class="btn btn-danger btn-sm pull-right" (click)="delete(todo)">
