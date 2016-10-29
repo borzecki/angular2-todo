@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { AlertComponent } from 'ng2-bootstrap/ng2-bootstrap';
-import { ROUTER_DIRECTIVES } from '@angular/router';
 import { TodoService }     from './todo.service';
 
 @Component({
@@ -25,7 +24,6 @@ import { TodoService }     from './todo.service';
     <router-outlet></router-outlet>
   </div>
   `,
-  directives: [ROUTER_DIRECTIVES, AlertComponent],
   providers: [
     TodoService
   ]

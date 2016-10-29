@@ -3,13 +3,11 @@ import { Router } from '@angular/router';
 
 import { Todo } from './todo';
 import { TodoService } from './todo.service';
-import { PROGRESSBAR_DIRECTIVES } from 'ng2-bootstrap/ng2-bootstrap';
 
 @Component({
   selector: 'my-todos',
   templateUrl: 'app/todo.component.html',
-  directives: [PROGRESSBAR_DIRECTIVES],
-  styleUrls:  ['app/todo.component.css'],
+  styleUrls:  ['app/todo.component.css']
 })
 export class TodoComponent implements OnInit {
   todos: Todo[];
@@ -28,11 +26,11 @@ export class TodoComponent implements OnInit {
       this.dynamic = todos.filter(item => item.done).length;
     });
   }
-  flup(todo){
+  flup(todo: any){
     todo.done = !todo.done;
     this.todoService.save(todo).then(todo => this.getTodos());
   }
-  delete(todo){
+  delete(todo: any){
     this.todoService.delete(todo).then(todo => this.getTodos());
   }
   addTodo(){

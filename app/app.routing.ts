@@ -1,9 +1,10 @@
-import { provideRouter, RouterConfig }  from '@angular/router';
+import { ModuleWithProviders }  from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
 import { DashboardComponent } from './dashboard.component';
 import { TodoComponent } from './todo.component';
 
-export const routes: RouterConfig = [
+const appRoutes: Routes = [
   {
     path: '',
     redirectTo: '/dashboard',
@@ -19,6 +20,4 @@ export const routes: RouterConfig = [
   }
 ];
 
-export const APP_ROUTER_PROVIDERS = [
-  provideRouter(routes)
-];
+export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);

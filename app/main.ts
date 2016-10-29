@@ -1,20 +1,5 @@
-// Imports for loading & configuring the in-memory web api
-import { XHRBackend } from '@angular/http';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
-//import { InMemoryBackendService, SEED_DATA } from 'angular2-in-memory-web-api';
-import { InMemoryBackendService, SEED_DATA } from 'angular2-in-memory-web-api/in-memory-backend.service';
-import { InMemoryDataService }               from './in-memory-data.service';
+import { AppModule } from './app.module';
 
-// The usual bootstrapping imports
-import { bootstrap }      from '@angular/platform-browser-dynamic';
-import { HTTP_PROVIDERS } from '@angular/http';
-
-import { AppComponent }         from './app.component';
-import { APP_ROUTER_PROVIDERS } from './app.routes';
-
-bootstrap(AppComponent, [
-    APP_ROUTER_PROVIDERS,
-    HTTP_PROVIDERS,
-    { provide: XHRBackend, useClass: InMemoryBackendService }, // in-mem server
-    { provide: SEED_DATA, useClass: InMemoryDataService }      // in-mem server data
-]);
+platformBrowserDynamic().bootstrapModule(AppModule);
